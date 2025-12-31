@@ -12,33 +12,32 @@ import 'package:vkstore/view/wishlist_screeen.dart';
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
-@override
-Widget build(BuildContext context) {
-  final NavigationController navigationController =
-      Get.put(NavigationController());
+  @override
+  Widget build(BuildContext context) {
+    final NavigationController navigationController = Get.put(
+      NavigationController(),
+    );
 
-  return GetBuilder<ThemeController>(
-    builder: (themeController) => Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 200),
-        child: Obx(
-          () => IndexedStack(
-            key: ValueKey(
-              navigationController.currentIndex.value,
+    return GetBuilder<ThemeController>(
+      builder: (themeController) => Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        body: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 200),
+          child: Obx(
+            () => IndexedStack(
+              key: ValueKey(navigationController.currentIndex.value),
+              index: navigationController.currentIndex.value,
+              children: [
+                HomeScreen(),
+                ShoppingScreen(),
+                WishlistScreeen(),
+                AccountScreeen(),
+              ],
             ),
-            index: navigationController.currentIndex.value,
-            children: [
-              HomeScreen(),
-              ShoppingScreen(),
-              WishlistScreeen(),
-              AccountScreeen(),
-            ],
           ),
         ),
+        bottomNavigationBar: const CustomBottomNavbar(),
       ),
-      bottomNavigationBar: CustomBottomNavbar(),
-    ),
-  );
-}
+    );
+  }
 }

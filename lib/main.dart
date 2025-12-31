@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
 import 'package:vkstore/controllers/auth_controller.dart';
+import 'package:vkstore/controllers/navigation_controller.dart';
 import 'package:vkstore/utils/app_theme.dart';
 import 'package:vkstore/view/splash_screen.dart';
 import 'package:vkstore/controllers/theme_controller.dart';
@@ -10,6 +11,7 @@ void main() async {
   await GetStorage.init();
   Get.put(ThemeController());
   Get.put(AuthController());
+  Get.put(NavigationController());
   runApp(const MyApp());
 }
 
