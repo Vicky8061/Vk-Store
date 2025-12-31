@@ -41,7 +41,7 @@ class AppTheme {
     colorScheme: ColorScheme.fromSeed(
       seedColor: const Color(0xFFff5722),
       primary: const Color(0xFFff5722),
-      brightness: Brightness.light,
+      brightness: Brightness.dark,
       surface: Color(0xFF121212),
     ),
     cardColor: Color(0xFF1E1E1E),
